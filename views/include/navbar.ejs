@@ -1,0 +1,52 @@
+<style>
+  .search-btn{
+    width: 0.5in;
+    height: 0.5in;
+    border-radius: 100%;
+  }
+
+  .search-inp{
+    width: 25vw;
+    border-radius: 25px;
+    padding-left: 2rem;
+  }
+</style>
+
+
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listing"><i class="fa-regular fa-compass"></i></a>
+
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">       
+          <a class="nav-link" href='/listing'>Explorar</a>                   
+        </div>
+
+        <form class="d-flex ms-auto" role="search">
+          <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" aria-label="Search">
+          <button class="btn btn-danger search-btn" type="submit"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+        </form>
+
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href='/listing/new'>Airbnb your home</a> 
+          <% if (!currentUser) { %>
+            <a class="nav-link active" aria-current="page" href="/signup"><b>Signup</b></a>
+            <a class="nav-link" href='/login'><b>Login</b></a>
+          <% } else { %>
+            <a class="nav-link" href='/logout'><b>Login</b></a>
+          <% } %>
+                    
+        </div>
+      </div>
+    </div>
+  </nav>

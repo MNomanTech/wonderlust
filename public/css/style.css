@@ -1,0 +1,116 @@
+
+a{
+    text-decoration: none;
+}
+
+*{
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+
+.navbar{
+    height: 5rem;
+}
+.nav-link{
+    color: black !important;
+}
+
+.navbar{
+    background-color: white;
+}
+
+.fa-compass{
+    color: red;
+    font-size: 2.5rem;
+}
+
+
+/* footer */
+
+footer{
+    background-color: lightgray;
+    padding: 1rem 2.5rem ;
+    margin-top: 1rem;
+
+}
+footer a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.last-footer{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-company-links li{
+    display: inline;
+    margin-right: 0.5rem;
+}
+.footer-company-links li:hover{
+    text-decoration: underline;
+}
+
+.footer-social-links i{
+    font-size: 1.3rem;
+    letter-spacing: 0.8rem;
+}
+
+
+/* Card */
+
+.card-border{
+    border: none;
+}
+
+.card-img-top{
+    /* width: 100% !important;  */
+    height: 30vh;
+    border-radius: 1rem !important;
+}
+
+.card-body-p{
+    padding: 0% !important;
+}
+
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+
+
+
+/* show route  */
+
+.card-btns{
+    display: flex;
+    
+}
+.card-btns > a{
+    margin-right: 1rem;
+}
+
+
+/* map */
+
+#map{
+    width: 80vw;
+    height: 400px;
+}

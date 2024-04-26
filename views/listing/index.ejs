@@ -1,0 +1,171 @@
+
+<% layout('layouts/boilerPlate') -%>
+
+<style>
+    .filters{
+        display: flex;
+        margin-bottom: 1rem;
+
+        align-items: center;
+    }
+
+    .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+
+        opacity: 0.8;
+    }
+
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    
+
+    .filter p{
+        font-size: small;
+    }
+
+    /* .form-switch{
+        margin-top: 2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding-top: 1rem;
+        
+    } */
+
+    .switch{
+
+        margin-top: 0.5rem;
+        margin-left: 10rem;
+        border: 1px solid black;
+        border-radius: 25px;
+        padding: 1rem;
+        
+        
+    }
+    .form-check-label{
+        font-size: small;
+        font-weight: bold;
+    }
+    .form-check-input{
+        height: 1.5rem;
+    }
+
+    .hide-gst{
+        display: none;
+    }
+</style>
+
+
+<body>
+    <!-- <h3>All List</h3> -->
+    
+    <div class="filters">
+        <div class="filter">
+            <i class="fa-solid fa-water-ladder"></i>
+            <p>Amazing pools</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-mountain-city"></i>
+            <p>Countryside</p>
+        </div>
+        <!--  -->
+        <div class="filter">
+            <i class="fa-solid fa-house-flood-water"></i>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-door-open"></i>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <i class="fa-brands fa-fort-awesome"></i>
+            <p>Mansions</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-tree-city"></i>
+            <p>Amazin views</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-fire"></i>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beachfront</p>
+        </div>
+        <div class="switch">
+            <div class="form-check form-switch form-check-reverse">
+                <input class="form-check-input " type="checkbox" id="flexSwitchCheckReverse">
+                <label class="form-check-label " for="flexSwitchCheckReverse">Display total after taxes</label>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 gap-5" >
+
+        <% allList.forEach( (listItem) => { %>
+            <div class="col me-5 ">
+
+                <a href="/listing/<%= listItem._id %>">
+                    
+                    <div class="card card-border" style="width: 25rem;">
+                        <img src="<%= listItem.image.url %>" class="card-img-top" alt="listing images">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body card-body-p">
+                            <p class="card-text">
+                                <b> <%= listItem.title %> </b> <br>
+                                <%= listItem.discription %> <br>
+                                <b class="show-always">&#8377; <%= listItem.price.toLocaleString("en-IN") %></b>
+                                <b class="hide-gst">&#8377; <%= (listItem.price)*(0.18)+(listItem.price) %></b>/night
+                                <span class="hide-gst">&nbsp;&nbsp;<i>+18%</i>GST</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </a>
+                
+
+            </div>
+        <% }); %>   
+
+    </div>
+
+    
+</body>
+
+<script>
+    let checkbox = document.getElementById("flexSwitchCheckReverse");
+    console.dir(checkbox);
+
+    checkbox.addEventListener("click" , function(event) {
+        let GST = document.getElementsByClassName("hide-gst");
+        let showPrice = document.getElementsByClassName("show-always");
+        if(this.checked == true) {
+            
+            for (const gst of GST) {
+                gst.style.display = "inline";
+            }
+            for (const price of showPrice) {
+                price.style.display = "none";
+            }
+            
+        }
+        else{
+
+            for (const gst of GST) {
+                gst.style.display = "none";
+                
+            }
+            for (const price of showPrice) {
+                price.style.display = "inline";
+            }
+        }
+        }
+    );
+</script>
+
+
