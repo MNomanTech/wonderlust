@@ -97,9 +97,11 @@ app.use((req,res,next) => {
 
 
 //routes 
+
 app.use('/listing', listingsRouter);
 app.use('/listing/:id/reviews', reviewsRouter);
 app.use('/',userRouter);
+app.use('/',listingsRouter);
 
 app.all('*', (req,res,next) => {
     next(new ExpressError(404,"Page Not Found"));
